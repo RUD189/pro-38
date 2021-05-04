@@ -49,10 +49,10 @@ function setup() {
   ground.addImage("ground",groundImage);
  
   
-   gameOver = createSprite(width/2,height/2- 50);
+   gameOver = createSprite(width/4,height/2-50);
   gameOver.addImage(gameOverImg);
   
-  restart = createSprite(width/2,height/2);
+  restart = createSprite(width/4,height/2);
   restart.addImage(restartImg);
   
   gameOver.scale = 0.5;
@@ -80,7 +80,7 @@ function draw() {
   //displaying score
   textStyle(ITALIC);     
   textSize(20);
-  text("Score: "+ score, camera.x - 110,camera.y - 400);
+  text("Score: "+ score, displayWidth/2 - 500,displayHeight/2 - 350);
   
 
  
@@ -89,7 +89,7 @@ function draw() {
     gameOver.visible = false
     restart.visible = false
     //move the ground
-    gameOver.position.x = restart.position.x = camera.x;
+    
    ground.velocityX = -(6 + 3*score/100);
     //scoring
 score = score + Math.round(getFrameRate()/60);
@@ -174,8 +174,8 @@ function reset(){
 }
 
 function spawnObstacles(){
- if (frameCount % 60 === 0){
-   var obstacle = createSprite(camera.x+width/2,displayHeight/2 + 32,20,30);
+ if (frameCount % 60 === 0){2
+   var obstacle = createSprite(camera.x+width/2, displayHeight/2 + 30,20,30);
    obstacle.velocityX = ground.velocityX; 
   
     //generate random obstacles
