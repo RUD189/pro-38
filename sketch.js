@@ -177,7 +177,7 @@ function spawnObstacles(){
  if (frameCount % 60 === 0){2
    var obstacle = createSprite(camera.x+width/2, displayHeight/2 + 30,20,30);
    obstacle.velocityX = ground.velocityX; 
-  
+   obstacle.y = invisibleGround.y - 45;
     //generate random obstacles
     var rand = Math.round(random(1,6));
     switch(rand) {
@@ -202,6 +202,7 @@ function spawnObstacles(){
    
    //add each obstacle to the group
     obstaclesGroup.add(obstacle);
+    
  }
 }
 
